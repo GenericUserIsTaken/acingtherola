@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://c24fqw2gwdyb0"]
+
+[ext_resource type="Theme" uid="uid://btsl8fm7cirgr" path="res://terminal.tres" id="1_5usl7"]
+[ext_resource type="Script" path="res://user_in.gd" id="1_8g5qp"]
+[ext_resource type="Script" path="res://user_in_container.gd" id="1_lxciw"]
+
+[node name="UserIn" type="HBoxContainer"]
+script = ExtResource("1_lxciw")
+
+[node name="Label2" type="Label" parent="."]
+custom_minimum_size = Vector2(12, 0)
+layout_mode = 2
+text = ">"
+autowrap_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_5usl7")
+max_length = 30
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+flat = true
+caret_blink = true
+caret_blink_interval = 0.35
+script = ExtResource("1_8g5qp")
+
+[connection signal="text_submitted" from="LineEdit" to="LineEdit" method="_on_text_submitted"]

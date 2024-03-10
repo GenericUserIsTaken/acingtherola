@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://nn7c2vs52kdl"]
+
+[node name="Computer text" type="Label"]
+text = "Welcome to the Aperture Science Terminal Experience"
+autowrap_mode = 1

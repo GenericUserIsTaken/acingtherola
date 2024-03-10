@@ -1,9 +1,37 @@
-[gd_scene load_steps=2 format=3 uid="uid://cu48ud8q4bw24"]
+[gd_scene load_steps=4 format=3 uid="uid://cu48ud8q4bw24"]
 
-[ext_resource type="PackedScene" uid="uid://crbii8jwp8re4" path="res://terminal.tscn" id="1_j032l"]
+[ext_resource type="Shader" uid="uid://b0hpuage1y2u1" path="res://crt.tres" id="1_hpngf"]
+[ext_resource type="PackedScene" uid="uid://iqqf8t7xkg31" path="res://control_2.tscn" id="2_7dp28"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4wb6v"]
+shader = ExtResource("1_hpngf")
+shader_parameter/CRT_CURVE = 0.023
+shader_parameter/CRT_BRIGHTNESS = 1.0
+shader_parameter/CRT_GHOST = 1.131
+shader_parameter/CRT_BRIGHTNESS_2 = 0.68
+shader_parameter/fuckshitup = Color(0, 0, 0, 1)
+shader_parameter/howbadlydoyouwanafuckshitup = Vector3(0, 0, 0)
+shader_parameter/CRT_WHITE_NOISE = 0.257
+shader_parameter/CRT_LINES_THICKNESS = 3.0
+shader_parameter/CRT_LINES = 0.259
 
 [node name="Main" type="Node2D"]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Control" parent="CanvasLayer" instance=ExtResource("1_j032l")]
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Camera2D/CanvasLayer"]
+material = SubResource("ShaderMaterial_4wb6v")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CrtViewPort" type="SubViewport" parent="Camera2D/CanvasLayer/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="Control2" parent="Camera2D/CanvasLayer/SubViewportContainer/CrtViewPort" instance=ExtResource("2_7dp28")]

@@ -1,6 +1,16 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://btsl8fm7cirgr"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://btsl8fm7cirgr"]
 
 [ext_resource type="FontFile" uid="uid://csjotjf0xecnt" path="res://VCR_OSD_MONO_1.001.ttf" id="1_ngeae"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ehslb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eqv6s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c0ktf"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2r8o8"]
+bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_46p2f"]
 bg_color = Color(0, 0, 0, 1)
@@ -8,6 +18,14 @@ bg_color = Color(0, 0, 0, 1)
 [resource]
 default_font = ExtResource("1_ngeae")
 default_font_size = 25
+Label/colors/font_color = Color(0.313726, 0.788235, 0, 1)
+LineEdit/colors/caret_color = Color(0.313726, 0.788235, 0, 1)
+LineEdit/colors/font_color = Color(0.313726, 0.788235, 0, 1)
+LineEdit/colors/font_placeholder_color = Color(0.309804, 0.776471, 0, 1)
+LineEdit/styles/focus = SubResource("StyleBoxEmpty_ehslb")
+LineEdit/styles/normal = SubResource("StyleBoxEmpty_eqv6s")
+Panel/styles/panel = SubResource("StyleBoxFlat_c0ktf")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_2r8o8")
 TextEdit/colors/caret_color = Color(0.313726, 0.788235, 0, 1)
 TextEdit/colors/font_color = Color(0.313726, 0.788235, 0, 1)
 TextEdit/colors/font_placeholder_color = Color(0.313726, 0.788235, 0, 1)

@@ -1,22 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://crbii8jwp8re4"]
+[gd_scene load_steps=5 format=3 uid="uid://crbii8jwp8re4"]
 
 [ext_resource type="Theme" uid="uid://btsl8fm7cirgr" path="res://terminal.tres" id="1_pucqo"]
-[ext_resource type="Script" path="res://terminal.gd" id="2_24vyf"]
+[ext_resource type="Script" path="res://terminalpanel.gd" id="2_qm2jx"]
+[ext_resource type="PackedScene" uid="uid://c24fqw2gwdyb0" path="res://user_in.tscn" id="3_0m6ow"]
+[ext_resource type="Script" path="res://TerminalVbox.gd" id="3_343ng"]
 
-[node name="Terminal" type="TextEdit"]
+[node name="PanelContainer" type="PanelContainer"]
 anchors_preset = -1
-anchor_right = 0.235417
+anchor_right = 0.401042
 anchor_bottom = 1.0
 grow_vertical = 2
 theme = ExtResource("1_pucqo")
-placeholder_text = ">"
-context_menu_enabled = false
-shortcut_keys_enabled = false
-selecting_enabled = false
-deselect_on_focus_loss_enabled = false
-drag_and_drop_selection_enabled = false
-middle_mouse_paste_enabled = false
-caret_blink = true
-caret_blink_interval = 0.35
-script = ExtResource("2_24vyf")
+script = ExtResource("2_qm2jx")
 metadata/_edit_use_anchors_ = true
+
+[node name="TerminalVbox" type="VBoxContainer" parent="."]
+clip_contents = true
+layout_mode = 2
+script = ExtResource("3_343ng")
+
+[node name="Computer text" type="Label" parent="TerminalVbox"]
+layout_mode = 2
+text = "Welcome to the Aperture Science Terminal Experience"
+autowrap_mode = 1
+
+[node name="UserIn" parent="TerminalVbox" instance=ExtResource("3_0m6ow")]
+layout_mode = 2
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
