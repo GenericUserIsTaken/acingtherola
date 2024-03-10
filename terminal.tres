@@ -1,0 +1,16 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://btsl8fm7cirgr"]
+
+[ext_resource type="FontFile" uid="uid://csjotjf0xecnt" path="res://VCR_OSD_MONO_1.001.ttf" id="1_ngeae"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_46p2f"]
+bg_color = Color(0, 0, 0, 1)
+
+[resource]
+default_font = ExtResource("1_ngeae")
+default_font_size = 25
+TextEdit/colors/caret_color = Color(0.313726, 0.788235, 0, 1)
+TextEdit/colors/font_color = Color(0.313726, 0.788235, 0, 1)
+TextEdit/colors/font_placeholder_color = Color(0.313726, 0.788235, 0, 1)
+TextEdit/constants/caret_width = 13
+TextEdit/fonts/font = ExtResource("1_ngeae")
+TextEdit/styles/normal = SubResource("StyleBoxFlat_46p2f")

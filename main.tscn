@@ -1,3 +1,9 @@
-[gd_scene format=3 uid="uid://cu48ud8q4bw24"]
+[gd_scene load_steps=2 format=3 uid="uid://cu48ud8q4bw24"]
+
+[ext_resource type="PackedScene" uid="uid://crbii8jwp8re4" path="res://terminal.tscn" id="1_j032l"]
 
 [node name="Main" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("1_j032l")]

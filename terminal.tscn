@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://crbii8jwp8re4"]
+
+[ext_resource type="Theme" uid="uid://btsl8fm7cirgr" path="res://terminal.tres" id="1_pucqo"]
+[ext_resource type="Script" path="res://terminal.gd" id="2_24vyf"]
+
+[node name="Terminal" type="TextEdit"]
+anchors_preset = -1
+anchor_right = 0.235417
+anchor_bottom = 1.0
+grow_vertical = 2
+theme = ExtResource("1_pucqo")
+placeholder_text = ">"
+context_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+middle_mouse_paste_enabled = false
+caret_blink = true
+caret_blink_interval = 0.35
+script = ExtResource("2_24vyf")
+metadata/_edit_use_anchors_ = true
