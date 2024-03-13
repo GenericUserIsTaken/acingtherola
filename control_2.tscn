@@ -1,6 +1,41 @@
-[gd_scene load_steps=2 format=3 uid="uid://iqqf8t7xkg31"]
+[gd_scene load_steps=7 format=3 uid="uid://iqqf8t7xkg31"]
 
 [ext_resource type="PackedScene" uid="uid://crbii8jwp8re4" path="res://terminal.tscn" id="1_jpscq"]
+[ext_resource type="Theme" uid="uid://btsl8fm7cirgr" path="res://terminal.tres" id="2_xas0w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fdlex"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_smabv"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 35
+corner_radius_top_right = 35
+corner_radius_bottom_right = 35
+corner_radius_bottom_left = 35
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5rp5j"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d1xjd"]
+bg_color = Color(0.960784, 0.368627, 0.466667, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
 
 [node name="Control2" type="Control"]
 layout_mode = 3
@@ -29,6 +64,333 @@ theme_override_constants/margin_left = 35
 theme_override_constants/margin_top = 35
 theme_override_constants/margin_right = 35
 theme_override_constants/margin_bottom = 35
+metadata/_edit_use_anchors_ = true
 
-[node name="Control" parent="MarginContainer" instance=ExtResource("1_jpscq")]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="terminal" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_jpscq")]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.01
+color = Color(0.254902, 0.635294, 0, 1)
+
+[node name="right" type="Panel" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_fdlex")
+
+[node name="Sat" type="Control" parent="MarginContainer/HBoxContainer/right"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -28.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(460, 505)
+
+[node name="solarPanel" type="Panel" parent="MarginContainer/HBoxContainer/right/Sat"]
+custom_minimum_size = Vector2(250, 350)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0369164
+anchor_top = 0.353465
+anchor_right = 0.30836
+anchor_bottom = 0.7
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_smabv")
+
+[node name="StatusColor" type="Line2D" parent="MarginContainer/HBoxContainer/right/Sat/solarPanel"]
+position = Vector2(20, 20)
+points = PackedVector2Array(120, 0, 0, 0, 0, 120)
+width = 5.0
+default_color = Color(0.945098, 0, 0.345098, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="StatusColor2" type="Line2D" parent="MarginContainer/HBoxContainer/right/Sat/solarPanel"]
+position = Vector2(230, 330)
+rotation = 3.14159
+points = PackedVector2Array(120, 0, 0, 0, 0, 120)
+width = 5.0
+default_color = Color(0.945098, 0, 0.345098, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="solarPanel2" type="Panel" parent="MarginContainer/HBoxContainer/right/Sat"]
+custom_minimum_size = Vector2(250, 350)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.701411
+anchor_top = 0.361386
+anchor_right = 0.972856
+anchor_bottom = 0.707921
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_smabv")
+
+[node name="StatusColor" type="Line2D" parent="MarginContainer/HBoxContainer/right/Sat/solarPanel2"]
+position = Vector2(20, 20)
+points = PackedVector2Array(120, 0, 0, 0, 0, 120)
+width = 5.0
+default_color = Color(0.945098, 0, 0.345098, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="StatusColor2" type="Line2D" parent="MarginContainer/HBoxContainer/right/Sat/solarPanel2"]
+position = Vector2(230, 330)
+rotation = 3.14159
+points = PackedVector2Array(120, 0, 0, 0, 0, 120)
+width = 5.0
+default_color = Color(0.945098, 0, 0.345098, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="body" type="Panel" parent="MarginContainer/HBoxContainer/right/Sat"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.374593
+anchor_top = 0.433663
+anchor_right = 0.635179
+anchor_bottom = 0.631683
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_smabv")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/right/Sat/body"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/right/Sat/body/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("2_xas0w")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 23
+text = "№ 12035-6231"
+horizontal_alignment = 1
+
+[node name="StatusColor" type="Line2D" parent="MarginContainer/HBoxContainer/right/Sat/body"]
+position = Vector2(20, 20)
+points = PackedVector2Array(80, 0, 0, 0, 0, 80)
+width = 5.0
+default_color = Color(0.945098, 0, 0.345098, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="StatusColor2" type="Line2D" parent="MarginContainer/HBoxContainer/right/Sat/body"]
+position = Vector2(220, 180)
+rotation = 3.14159
+points = PackedVector2Array(80, 0, 0, 0, 0, 80)
+width = 5.0
+default_color = Color(0.945098, 0, 0.345098, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="ConnectorLine" type="Line2D" parent="MarginContainer/HBoxContainer/right/Sat"]
+points = PackedVector2Array(347, 545, 282, 545)
+width = 5.0
+
+[node name="ConnectorLine2" type="Line2D" parent="MarginContainer/HBoxContainer/right/Sat"]
+position = Vector2(300.505, 0)
+points = PackedVector2Array(347, 545, 284, 545)
+width = 5.0
+
+[node name="ConnectorLine3" type="Line2D" parent="MarginContainer/HBoxContainer/right/Sat"]
+points = PackedVector2Array(471, 440, 540, 244)
+width = 5.0
+
+[node name="thruster" type="Panel" parent="MarginContainer/HBoxContainer/right/Sat"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.441911
+anchor_top = 0.626733
+anchor_right = 0.567861
+anchor_bottom = 0.710891
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_smabv")
+metadata/_edit_use_anchors_ = true
+
+[node name="thruster2" type="Panel" parent="MarginContainer/HBoxContainer/right/Sat"]
+custom_minimum_size = Vector2(150, 75)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.476656
+anchor_top = 0.157426
+anchor_right = 0.689468
+anchor_bottom = 0.354455
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_5rp5j")
+
+[node name="ConnectorLine4" type="Line2D" parent="MarginContainer/HBoxContainer/right/Sat"]
+points = PackedVector2Array(541, 259, 639, 186)
+width = 5.0
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="thruster3" type="Panel" parent="MarginContainer/HBoxContainer/right/Sat"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.672096
+anchor_top = 0.163366
+anchor_right = 0.717698
+anchor_bottom = 0.20396
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_d1xjd")
+metadata/_edit_use_anchors_ = true
+
+[node name="Sat2" type="Control" parent="MarginContainer/HBoxContainer/right"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(460, 505)
+
+[node name="Bottom" type="Control" parent="MarginContainer/HBoxContainer/right/Sat2"]
+layout_mode = 1
+anchor_top = 0.8
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Gizmo" type="Control" parent="MarginContainer/HBoxContainer/right/Sat2/Bottom"]
+layout_mode = 1
+anchor_top = -0.163366
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="arrow" type="Line2D" parent="MarginContainer/HBoxContainer/right/Sat2/Bottom/Gizmo"]
+position = Vector2(54.045, 123.125)
+rotation = 0.0189393
+points = PackedVector2Array(0, 0, 100, 0, 80, 20, 100, 0, 80, -20)
+default_color = Color(0.882353, 0, 0.364706, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/right/Sat2/Bottom/Gizmo"]
+layout_mode = 1
+offset_left = 14.0
+offset_top = 6.0
+offset_right = 92.0
+offset_bottom = 27.0
+theme = ExtResource("2_xas0w")
+theme_override_colors/font_color = Color(0.372549, 0.72549, 0, 1)
+theme_override_font_sizes/font_size = 23
+text = "10 m/s"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/right/Sat2/Bottom/Gizmo"]
+layout_mode = 1
+offset_left = 163.0
+offset_top = 116.0
+offset_right = 228.0
+offset_bottom = 137.0
+theme = ExtResource("2_xas0w")
+theme_override_colors/font_color = Color(0.945098, 0, 0.345098, 1)
+theme_override_font_sizes/font_size = 23
+text = "1 m/s"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="MarginContainer/HBoxContainer/right/Sat2/Bottom/Gizmo"]
+layout_mode = 1
+offset_left = 12.0
+offset_top = 207.0
+offset_right = 77.0
+offset_bottom = 228.0
+theme = ExtResource("2_xas0w")
+theme_override_colors/font_color = Color(0, 0.682353, 0.890196, 1)
+theme_override_font_sizes/font_size = 23
+text = "1 m/s"
+horizontal_alignment = 1
+
+[node name="arrow2" type="Line2D" parent="MarginContainer/HBoxContainer/right/Sat2/Bottom/Gizmo"]
+position = Vector2(54.045, 123.125)
+rotation = -1.63305
+points = PackedVector2Array(0, 0, 90, 0, 70, 20, 90, 0, 70, -20)
+default_color = Color(0.372549, 0.72549, 0, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="arrow3" type="Line2D" parent="MarginContainer/HBoxContainer/right/Sat2/Bottom/Gizmo"]
+position = Vector2(54.045, 123.125)
+rotation = 1.66831
+points = PackedVector2Array(0, 0, 80, 0, 60, 20, 80, 0, 60, -20)
+default_color = Color(0, 0.682353, 0.890196, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/right/Sat2/Bottom"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -63.5
+offset_top = -40.0
+offset_right = 63.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/right/Sat2/Bottom/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("2_xas0w")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 23
+text = "0 degrees"
+horizontal_alignment = 1
+
+[node name="Time" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.509
+anchor_top = 0.034
+anchor_right = 0.665
+anchor_bottom = 0.068
+grow_horizontal = 2
+theme = ExtResource("2_xas0w")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+text = "TIME: 12:30"

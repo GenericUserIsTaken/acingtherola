@@ -216,7 +216,7 @@ operator = 2
 output_port_for_preview = 0
 
 [sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_w8t6g"]
-default_input_values = [0, 0.0, 1, 0.0, 2, 0.0, 3, 1.0]
+default_input_values = [0, 0.0, 1, 0.0, 2, 0.0, 3, 0.0]
 op_type = 2
 
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_3yh7t"]
@@ -432,7 +432,7 @@ void fragment() {
 
 
 // FloatConstant:13
-	float n_out13p0 = 3.141593;
+	float n_out13p0 = 3.141590;
 
 
 // VectorOp:14
@@ -581,7 +581,6 @@ void fragment() {
 
 // Input:105
 	vec2 n_out105p0 = UV;
-	float n_out105p1 = n_out105p0.r;
 
 
 // VectorOp:104
@@ -665,7 +664,7 @@ void fragment() {
 
 
 // FloatConstant:98
-	float n_out98p0 = 3.141593;
+	float n_out98p0 = 3.141590;
 
 
 // VectorOp:100
@@ -685,7 +684,7 @@ void fragment() {
 
 
 // FloatConstant:85
-	float n_out85p0 = 3.141593;
+	float n_out85p0 = 3.141590;
 
 
 // FloatOp:86
@@ -836,7 +835,7 @@ void fragment() {
 
 
 // VectorCompose:47
-	float n_in47p3 = 1.00000;
+	float n_in47p3 = 0.00000;
 	vec4 n_out47p0 = vec4(n_out44p1, n_out44p2, n_out44p3, n_in47p3);
 
 
@@ -846,7 +845,7 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(466.401, 1335.85)
+graph_offset = Vector2(-516.783, 653.921)
 mode = 1
 flags/light_only = false
 nodes/vertex/2/node = SubResource("VisualShaderNodeInput_l4gmp")
