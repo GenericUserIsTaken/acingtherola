@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://kh354mx77nr1"]
+
+[ext_resource type="Theme" uid="uid://btsl8fm7cirgr" path="res://terminal.tres" id="1_rcol5"]
+
+[node name="Time" type="Label"]
+anchors_preset = -1
+anchor_left = 0.509
+anchor_top = 0.034
+anchor_right = 0.665
+anchor_bottom = 0.068
+grow_horizontal = 2
+theme = ExtResource("1_rcol5")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+text = "TIME: 12:30"

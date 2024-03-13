@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://iqqf8t7xkg31"]
+[gd_scene load_steps=8 format=3 uid="uid://iqqf8t7xkg31"]
 
 [ext_resource type="PackedScene" uid="uid://crbii8jwp8re4" path="res://terminal.tscn" id="1_jpscq"]
 [ext_resource type="Theme" uid="uid://btsl8fm7cirgr" path="res://terminal.tres" id="2_xas0w"]
+[ext_resource type="Script" path="res://Time.gd" id="3_smieg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fdlex"]
 bg_color = Color(0, 0, 0, 1)
@@ -394,3 +395,9 @@ theme = ExtResource("2_xas0w")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 50
 text = "TIME: 12:30"
+script = ExtResource("3_smieg")
+
+[node name="Timer" type="Timer" parent="Time"]
+autostart = true
+
+[connection signal="timeout" from="Time/Timer" to="Time" method="_on_timer_timeout"]
