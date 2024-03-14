@@ -5,7 +5,7 @@ var userIn : PackedScene = preload("res://user_in.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	TCMD.responsetxt.connect(printout)
-
+	TCMD.redtext.connect(redout)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -20,6 +20,12 @@ func printout(txt):
 	self.add_child(newinput)
 	newestline = newinput
 	focus_newest()
+	
+func redout(txt):
+	var newprintout = defaultLabel.instantiate()
+	newprintout.text = txt
+	newprintout.add_theme_color_override("font_color", Color.RED)
+	self.add_child(newprintout)
 
 func focus_newest():
 	newestline.give_focus()
