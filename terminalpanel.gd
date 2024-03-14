@@ -1,7 +1,7 @@
 extends PanelContainer
 
 var mousein = false
-@onready var vbox = $TerminalVbox
+@onready var vbox = %TerminalVbox
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass

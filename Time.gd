@@ -27,6 +27,7 @@ func addMin():
 		hours+=1
 	else:
 		min +=1
+	TCMD.timeUpdated(hours,min)
 
 func _on_timer_timeout():
 	addMin()

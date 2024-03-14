@@ -1,8 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://iqqf8t7xkg31"]
+[gd_scene load_steps=11 format=3 uid="uid://iqqf8t7xkg31"]
 
 [ext_resource type="PackedScene" uid="uid://crbii8jwp8re4" path="res://terminal.tscn" id="1_jpscq"]
+[ext_resource type="Script" path="res://right.gd" id="2_gttd1"]
 [ext_resource type="Theme" uid="uid://btsl8fm7cirgr" path="res://terminal.tres" id="2_xas0w"]
 [ext_resource type="Script" path="res://Time.gd" id="3_smieg"]
+[ext_resource type="Script" path="res://ThrustLabel.gd" id="3_xesqw"]
+[ext_resource type="Script" path="res://antena.gd" id="4_1yhbc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fdlex"]
 bg_color = Color(0, 0, 0, 1)
@@ -95,6 +98,7 @@ offset_bottom = -28.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(460, 505)
+script = ExtResource("2_gttd1")
 
 [node name="solarPanel" type="Panel" parent="MarginContainer/HBoxContainer/right/Sat"]
 custom_minimum_size = Vector2(250, 350)
@@ -235,7 +239,7 @@ size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_smabv")
 metadata/_edit_use_anchors_ = true
 
-[node name="thruster2" type="Panel" parent="MarginContainer/HBoxContainer/right/Sat"]
+[node name="antena" type="Panel" parent="MarginContainer/HBoxContainer/right/Sat"]
 custom_minimum_size = Vector2(150, 75)
 layout_mode = 1
 anchors_preset = -1
@@ -245,23 +249,30 @@ anchor_right = 0.689468
 anchor_bottom = 0.354455
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(98, 99.5)
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_5rp5j")
+script = ExtResource("4_1yhbc")
 
-[node name="ConnectorLine4" type="Line2D" parent="MarginContainer/HBoxContainer/right/Sat"]
+[node name="ConnectorLine4" type="Line2D" parent="MarginContainer/HBoxContainer/right/Sat/antena"]
+position = Vector2(-439, -159)
 points = PackedVector2Array(541, 259, 639, 186)
 width = 5.0
 joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="thruster3" type="Panel" parent="MarginContainer/HBoxContainer/right/Sat"]
+[node name="red light" type="Panel" parent="MarginContainer/HBoxContainer/right/Sat/antena"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.672096
-anchor_top = 0.163366
-anchor_right = 0.717698
-anchor_bottom = 0.20396
+anchor_left = 0.995305
+anchor_top = 0.100948
+anchor_right = 1.05629
+anchor_bottom = 0.160697
+offset_left = -0.0799103
+offset_top = -0.0889225
+offset_right = -0.0319061
+offset_bottom = 0.0211563
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -313,8 +324,10 @@ offset_bottom = 27.0
 theme = ExtResource("2_xas0w")
 theme_override_colors/font_color = Color(0.372549, 0.72549, 0, 1)
 theme_override_font_sizes/font_size = 23
-text = "10 m/s"
+text = "0 m/s"
 horizontal_alignment = 1
+script = ExtResource("3_xesqw")
+export = 1
 
 [node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/right/Sat2/Bottom/Gizmo"]
 layout_mode = 1
@@ -325,8 +338,9 @@ offset_bottom = 137.0
 theme = ExtResource("2_xas0w")
 theme_override_colors/font_color = Color(0.945098, 0, 0.345098, 1)
 theme_override_font_sizes/font_size = 23
-text = "1 m/s"
+text = "0 m/s"
 horizontal_alignment = 1
+script = ExtResource("3_xesqw")
 
 [node name="Label3" type="Label" parent="MarginContainer/HBoxContainer/right/Sat2/Bottom/Gizmo"]
 layout_mode = 1
@@ -337,8 +351,10 @@ offset_bottom = 228.0
 theme = ExtResource("2_xas0w")
 theme_override_colors/font_color = Color(0, 0.682353, 0.890196, 1)
 theme_override_font_sizes/font_size = 23
-text = "1 m/s"
+text = "0 m/s"
 horizontal_alignment = 1
+script = ExtResource("3_xesqw")
+export = 2
 
 [node name="arrow2" type="Line2D" parent="MarginContainer/HBoxContainer/right/Sat2/Bottom/Gizmo"]
 position = Vector2(54.045, 123.125)
@@ -360,14 +376,14 @@ end_cap_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/right/Sat2/Bottom"]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+anchors_preset = -1
+anchor_left = 0.279
+anchor_top = 0.678
+anchor_right = 0.982
 anchor_bottom = 1.0
-offset_left = -63.5
-offset_top = -40.0
-offset_right = 63.5
+offset_left = 0.0409851
+offset_top = 0.0439911
+offset_right = -0.422058
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/margin_left = 5
@@ -375,12 +391,34 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/right/Sat2/Bottom/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/right/Sat2/Bottom/MarginContainer"]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="MarginContainer/HBoxContainer/right/Sat2/Bottom/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ShipRotationLabel" type="Label" parent="MarginContainer/HBoxContainer/right/Sat2/Bottom/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("2_xas0w")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 23
-text = "0 degrees"
+text = "0 degrees, ship"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer/right/Sat2/Bottom/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.27
+
+[node name="AntennaRotation" type="Label" parent="MarginContainer/HBoxContainer/right/Sat2/Bottom/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_xas0w")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 23
+text = "0 degrees, antenna"
 horizontal_alignment = 1
 
 [node name="Time" type="Label" parent="."]
@@ -394,7 +432,7 @@ grow_horizontal = 2
 theme = ExtResource("2_xas0w")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 50
-text = "TIME: 12:30"
+text = "TIME: 00:00"
 script = ExtResource("3_smieg")
 
 [node name="Timer" type="Timer" parent="Time"]

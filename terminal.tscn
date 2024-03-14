@@ -1,17 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://crbii8jwp8re4"]
+[gd_scene load_steps=6 format=3 uid="uid://crbii8jwp8re4"]
 
 [ext_resource type="Theme" uid="uid://btsl8fm7cirgr" path="res://terminal.tres" id="1_pucqo"]
 [ext_resource type="Script" path="res://terminalpanel.gd" id="2_qm2jx"]
 [ext_resource type="PackedScene" uid="uid://c24fqw2gwdyb0" path="res://user_in.tscn" id="3_0m6ow"]
 [ext_resource type="Script" path="res://TerminalVbox.gd" id="3_343ng"]
+[ext_resource type="Script" path="res://ScrollContainer.gd" id="3_tgrjs"]
 
 [node name="PanelContainer" type="PanelContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -125.0
-offset_right = -1844.0
-offset_bottom = -907.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -19,17 +17,28 @@ size_flags_vertical = 3
 theme = ExtResource("1_pucqo")
 script = ExtResource("2_qm2jx")
 
-[node name="TerminalVbox" type="VBoxContainer" parent="."]
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+script = ExtResource("3_tgrjs")
+
+[node name="TerminalVbox" type="VBoxContainer" parent="ScrollContainer"]
+unique_name_in_owner = true
 clip_contents = true
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("3_343ng")
 
-[node name="Computer text" type="Label" parent="TerminalVbox"]
+[node name="Computer text" type="Label" parent="ScrollContainer/TerminalVbox"]
 layout_mode = 2
-text = "Welcome to the Aperture Science Terminal Experience"
+text = "Welcome to the CutCostsCo Terminal Experience
+'help' for help"
 autowrap_mode = 1
 
-[node name="UserIn" parent="TerminalVbox" instance=ExtResource("3_0m6ow")]
+[node name="UserIn" parent="ScrollContainer/TerminalVbox" instance=ExtResource("3_0m6ow")]
 layout_mode = 2
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

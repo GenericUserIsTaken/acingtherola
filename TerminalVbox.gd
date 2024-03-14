@@ -1,5 +1,4 @@
 extends VBoxContainer
-
 var defaultLabel : PackedScene = preload("res://computer_text.tscn")
 var userIn : PackedScene = preload("res://user_in.tscn")
 @onready var newestline = $UserIn
