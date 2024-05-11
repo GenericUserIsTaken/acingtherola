@@ -22,13 +22,16 @@ var antrot = 0
 var curtask = 0
 var taskstrs = ["be at rotation 2 deg then run checkpath",
 				"burn until you get (-3,4,20) velocity then run checkpath",
-				"rotate antena angle to 15 deg, then activate com/os update",#end part 1 something about being time sensitive/efficient 2
+				"rotate antena angle to 15 deg",#end part 1 something about being time sensitive/efficient 2
+				"activate com/os update",
 				"rotate to -20 deg within 2 minutes of the last update.",
 				"burn to around (700,155,-637) velocity within a min",
-				"rotate antena angle to 0 deg, then activate com/os update",#end part 2 #5
+				"rotate antena angle to -90 deg",#end part 2 #5
+				"activate com/os update",
 				"rotate to 90 deg within a min",
 				"burn to around (0,16,2) velocity within a min",
-				"rotate antena angle to -45 deg, then activate com/os update",#end part 3 #8
+				"rotate antena angle to -45 deg",#end part 3 #8
+				"activate com/os update",
 				"rotate to 69 deg within a min",
 				"burn to around (-33333,44444,22220) velocity within a min",
 				"rotate antena angle to 15 deg",
@@ -148,33 +151,41 @@ func checkAntRot(check):
 13"rotate antena angle to 15 deg",
 14"com update"#end game #12
 '''
-
+#await get_tree().create_timer(1.0).timeout
 func checkpath(cmd):
+	pr(taskstrs[curtask]+"\n")
 	match curtask:
 		0:
 			checkSatRot(2)
 		1:
-			checkShipPos([-3,4,20])
+			#checkShipPos([-3,4,20])
+			curtask+=1
+			pr("skipped",true)
 		2:
 			checkAntRot(15)
 		3:
 			pr("UpdateOS",true)
 		4:
-			checkShipPos([-3,4,20])
+			checkSatRot(-20)
 		5:
-			checkAntRot(15)
+			#checkShipPos([700,155,-637])
+			curtask+=1
+			pr("skipped",true)
 		6:
-			pr("UpdateOS",true)
-		7:
-			checkShipPos([-3,4,20])
+			#pr("UpdateOS",true)
+			checkAntRot(-90)
 		8:
-			checkAntRot(15)
+			#checkShipPos([0,16,2])
+			curtask+=1
+			pr("skipped",true)
 		9:
 			pr("UpdateOS",true)
 		10:
-			checkShipPos([-3,4,20])
+			checkSatRot(69)
 		11:
-			checkAntRot(15)
+			#checkShipPos([-33333,44444,22220])
+			curtask+=1
+			pr("skipped",true)
 		12:
 			checkAntRot(15)
 	
@@ -188,6 +199,7 @@ func termupdate(cmd):
 			pr("Renamed Confusing Commands\n")
 			pr("Added Assistant AI, its commands are marked in red text\n")
 			pr("Rewrote everything in javascript,\nthe correct language for everything\n",true)
+			curtask+=1
 		6:
 			pr("Downloading update... Complete!\n")
 			pr("Mission Status: On Track?\n")
@@ -195,6 +207,7 @@ func termupdate(cmd):
 			pr("Updated System Colors\n")
 			pr("Renamed Confusing Commands\n")
 			pr("Rewrote everything in rust, as god and\nspecifically the united states government intended\n",true)
+			curtask+=1
 		9:
 			pr("Downloading update... Complete!\n")
 			pr("Mission Status: Probably fine\n")
@@ -202,12 +215,14 @@ func termupdate(cmd):
 			pr("Updated System Colors\n")
 			pr("Renamed Confusing Commands\n")
 			pr("Fired all the software engineers and\nmade the AI write everything\n",true)
+			curtask+=1
 		13:
 			pr("Downloading update... Complete!\n")
 			pr("Mission Status: Terminated\n")
 			pr("Mission deemed unprofitable and boring\n")
 			pr("Disabling manual control in a moment\n")
 			pr("Flying into the closest sun, have a safe work day!\n",true)
+			curtask+=1
 		_:
 			pr("No uplink established, update impossible, Aborting!",true)
 #region color
